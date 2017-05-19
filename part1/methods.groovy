@@ -9,33 +9,29 @@ import groovy.transform.*
     def say(String text = "I hear you") {println text}
 }
 
-    Dragon dragon = new Dragon('Smaug');
-    dragon.fly(); // dragon is the object, and fly is the method
-
-    // java-style methods
-    public void fly() {
-        // flying code
-    }
-    public void fly(int x, int y) {
-        // fly to that x, y coordinate.
-    }
+    Dragon dragon = new Dragon('Smaug')
+    dragon.fly()
+    dragon.say()
+    dragon.say('I smell you')
     
     // java-style
     public Dragon makeDragonNamed(String name) {
         return new Dragon(name);
     }
-    
-    //groovy-style
+    //groovy-style: use 'def', no type, 'return' not needed
     def makeDragonNamed(name) {
         new Dragon(name)
     }
-    
+    println '\n'
     println(makeDragonNamed("Norbert"))
     
+    //varargs
     void printSpaced(Object... objects) {
-        for (Object o : objects) System.out.print(o + " ");
+        for (Object o : objects) print(o + " ")
     }
-    printSpaced("A", "B", "C"); // A B C
+    println '\n'
+    printSpaced("A", "B", "C") // A B C
     println()
-    printSpaced(1, 2, 3); // 1 2 3
+    printSpaced(1, 2, 3) // 1 2 3
     println()
+    

@@ -1,6 +1,6 @@
 
 def doSomething() { println("doSomething() called") }
-def doSomething(i) { println("doSomething($i) called") }
+def doSomething(i, type="") { println("doSomething($i, $type) called") }
 
 WHILE: {
     boolean repeat = true
@@ -24,9 +24,9 @@ ITERATE_USING_WHILE: {
 }
 FOR_LOOP: {
     for (int i = 0; i < 10; i++) { //java style
-        doSomething(i)
+        doSomething(i, "java")
     }
-    for (i in 0..<10) doSomething(i) // groovy style
+    for (i in 0..<10) doSomething(i, "groovy") // groovy style
 }
 println()
 ARRAY_LOOP: {
@@ -44,11 +44,12 @@ println()
 FOR_EACH: {    
 //    String[] strArray = {"a", "b", "c"} //java
     String[] strArray = ["a", "b", "c"] //groovy
-    println('java style:')
+    println('java style2:')
     for (String str : strArray) print(str)
     println()
-    println('Groovy style:')
+    println('Groovy style2:')
     strArray.each { print it } //or
+    println('')
     strArray.each { str -> print str }
 }
 println()

@@ -2,7 +2,7 @@ import groovy.transform.*
 
 @ToString
 @TupleConstructor
-//@EqualsAndHashCode
+@EqualsAndHashCode
 class Person {
     def name
 }
@@ -11,22 +11,33 @@ println "person = $bob"
 
 Person bob2 = new Person("Bob")
 
-// TODO
+println "bob == bob2? ${bob == bob2}"
+
+println "\n\n\n"
+
 
 @Canonical 
+//@TypeChecked
 class Dragon {
     final age
     String name
-    public Dragon(name, age = 1000) {this.name = name; this.age = age}
-    def lines = ["I smell you!", "I hear your breath"]
-    def count = 0
-    def fly(String text = " is flying") {println name+text}
-    def talk() {println lines[count++]}
-    
+    //def x() { name.foo() }
 }
 
-def d = new Dragon("Smaug")
+def d = new Dragon(1000, "Smaug")
+println "$d.name is $d.age years old"
 
-d.fly(" the terrible")
-println "${d.name} is ${d.age} years old"
-for (i in 0..<2) {d.talk()}
+def norbort = new Dragon(1, "Norbort")
+println "$norbort.name is $norbort.age year old"
+
+//d.age = 2
+println "$norbort"
+
+def d2 = new Dragon(2, "Smaug")
+def d3 = new Dragon(1000, "Smaug")
+println "d2equal? ${d == d2}"
+println "d3equal? ${d == d3}"
+
+
+
+

@@ -1,12 +1,15 @@
 
 //groovy truth
 
-if ("foo") println("true")
-if (!"") println("true")
-if (42) println("true")
-if (! 0) println("true")
+if ("foo") println("foo")
+if (42) println("42")
+if (!"") println("empty string")
+if (! 0) println("zero")
+if (![]) println "empty set!"
 
+if (null) println "null!"
 if ([]) println "wrong!"
 
-if (![]) println "true!"
+// null, 0, [], "" === false
+
 

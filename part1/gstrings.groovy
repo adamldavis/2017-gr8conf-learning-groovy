@@ -9,7 +9,17 @@ STRINGS: {
     println(hello)
     println(hello.class)
     
+    println ''
+    println 'GString:'
     def g = "this is a gstring. $hello"
     println g
     println(g.class)
+}
+MULTILINE: {
+    def hello = '''
+    This is a
+    multiple line
+    string.
+    '''
+    println hello
 }

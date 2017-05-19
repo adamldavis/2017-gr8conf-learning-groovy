@@ -10,13 +10,16 @@ MATH: {
     
     println pi.class
     
-    def dPI = 3.141592d
+    def pie = 3.141592d
     
-    println dPI
-    println dPI.class
+    println pie
+    println pie.class
     
-    println (pi + dPI)
-    println('BigD + double is ' + (pi + dPI).class)
+    println (pi + pie)
+    println('BigD + double is ' + (pi + pie).class)
+    
+    println "--------------------"
+    println ((1f + 2d).class)
 }
 
 TIMES: {

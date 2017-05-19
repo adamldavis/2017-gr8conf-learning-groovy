@@ -1,42 +1,54 @@
-// REGEX = REGULAR EXPRESSIONS
+println '''
+    REGEX = REGULAR EXPRESSIONS
+    '''
+println "----------------REGEX using ==~"
+println "Java style::"
 
-def list = ['Mercury', 'Gemini', 'Apollo', 'Curiosity', 'Phoenix']
+println("Mercury".matches("\\w+"))
 
-assert list.any { it =~ /r/ }              // =~ means find anywhere
-assert list.every { it ==~ /[A-Z][a-z]+/ } // ==~ means match the whole string
+println "Groovy style::"
 
-assert list.find { it ==~ 'Apollo' } == 'Apollo'
-assert list.findAll { it.size() < 6 } == []
+if ("Mercury" ==~ /\w+/) println "matched!"
 
-assert list.findIndexOf { name -> name =~ /^C.*/ } == 3  // Start with C.
+//if (email ==~ /[\w.]+@[\w.]+/
 
-assert list.findIndexValues { it =~ /(y|Y)/ } == [0,3] // Contains y or Y.
-assert list.findIndexValues(2) { it =~ /(y|Y)/ } == [3] // starting index of 2
-assert list.findLastIndexOf { it.size() == 6 } == 2
-assert list.findLastIndexOf { it.count('e') >= 1 } == 4 // count = number of occurances
+println "----------------REGEX in find/any/every"
 
-def map = [name: 'Groovy and Grails', url: 'http://groovy.codehaus.org', blog: false]
+def names = ['Mercury', 'Gemini', 'Apollo', 'Curiosity', 'Phoenix']
+println """
+    names=$names
+    """
+// =~ means find anywhere
+println("any: " + names.any { it =~ /r/ })
+// ==~ means match the whole string
+println("every: " + names.every { it ==~ /[A-Z][a-z]+/ })
+println("find: " + names.find { it ==~ 'Apol+o' })
 
-def found = map.find { it.value =~ /Groovy/ }
+println("Start with C: " + names.findIndexOf { name -> name =~ /^C.*/ })
 
-assert found.key == 'name' && found.value == 'Groovy and Grails'
+println("Contains y or Y: " + names.findIndexValues { it =~ /(y|Y)/ })
 
-assert map.findAll { key, value ->
-   value =~ /(G|g)roovy/
-} == [name: 'Groovy and Grails', url: 'http://groovy.codehaus.org']
+def props = [name: 'Groovy', url: 'http://groovy-lang.org']
+println """
+    props=$props
+    """
+def found = props.find { it.value =~ /[Gg]roovy/ }
+def all = props.findAll { it.value =~ /[Gg]roovy/ }
 
-assert map.findIndexOf { it.value.endsWith('org') } == 1
-assert map.findIndexValues { it.key =~ /l/ } == [1,2]  // All keys with the letter 'l'.
-assert map.findLastIndexOf { it.key =~ /l/ && !it.value } == 2
+println "found:  $found    findAll: $all \n"
+
+//println "${all.getClass()}"
 
 // REGEX in switch
-Closure test = {
-    switch (it) { 
-        case ~/Ja.+/: return 1
-        case ~/Gr.*/: return 2
+println "----------------REGEX in SWITCH"
+def test(value) {
+    switch (value) {
+        case ~/Ja.+/: return 'java'
+        case ~/Gr.+/: return 'groovy'
         default: return 404
-    }}
-
-assert test("Java") == 1
-assert test("Groovy") == 2
+    }
+}
+println test("Java")
+println test("Groovy")
+println test("Ruby")
 

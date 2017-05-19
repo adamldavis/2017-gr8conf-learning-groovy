@@ -16,6 +16,8 @@ def test (x) {
     case Number:
         result = "was number"
         break
+    case ~/gr.*/: result = "was groovy"
+        break
     default:
         result = "default"
     }
@@ -27,3 +29,6 @@ println test(24)
 println test(1337)
 println test(3.141592)
 println test(4.0)
+println test("groovy")
+
+

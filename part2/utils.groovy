@@ -29,8 +29,8 @@ It also allows for nested (Closure) configuration values and arbitrary object ty
 /*The Expando class can be used to create a dynamically expandable object.*/
 
     def expando = new Expando()
-    expando.name = { -> 'Draco' }
-    expando.say = { String s -> "${expando.name} says: ${s}" }
+    expando.name = 'Draco'
+    expando.say = { String s -> "${expando.name} says: $s" }
     println expando.say('hello') // Draco says: hello
 
 // Use meta-programming to alter some class's `metaClass` and then print out the class of the `metaClass`. Is it the `Expando` class?

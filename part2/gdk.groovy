@@ -1,8 +1,8 @@
 /*
 - `sort` -- Sorts the collection (if it is sortable)
-- `findAll` -- Finds all elements that match a closure.
-- `collect` -- An iterator that builds a new collection.
-- `inject` -- Loops through the values and returns a single value.
+- `findAll` -- Finds all elements that match a closure. (filter)
+- `collect` -- An iterator that builds a new collection. (map)
+- `inject` -- Loops through the values and returns a single value. (reduce)
 - `each` -- Iterates through the values using the given closure.
 - `eachWithIndex` -- Iterates through with two parameters: a value and an index.
 - `find` -- Finds the first element that matches a closure.
@@ -27,7 +27,14 @@ dragons.each { println it }
 
 if (dragons.any { it.name.startsWith("S") }) println "S found"
 
+println 'collect:'
 println( dragons.collect { it.name.toUpperCase() } )    
+
+println 'findAll:'
+println( dragons.findAll { it.name.length() > 5 } )
+
+println 'inject:'
+println( dragons.inject('') { total, d -> total + d.name } )
 
 println '-----------------'
 

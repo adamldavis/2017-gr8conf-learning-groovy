@@ -12,9 +12,19 @@ dog.bark()
 //methodMissing
 class Car {
     def methodMissing(String name, params) {
-        println "$name $params"
+        def impl = { p -> println "$name $p" }
+        Car.metaClass."$name" = impl
+        impl(params)
     }
 }
 def car = new Car()
 car.go("vroom")
+car.park()
+car.switchGear("reverse")
+car.findAllCarsWithModel("Honda")
+
+car.go("clunk")
+
+println Car.metaClass.methods
+
 
