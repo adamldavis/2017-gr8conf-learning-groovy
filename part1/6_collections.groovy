@@ -47,12 +47,4 @@ SET2: {
     dragons << "Feilong"
     println(dragons)
 }
-MAPS: {
-    def map = [cars: 1, boats: 2, planes: 3]
-    println map
-    println "cars = $map.cars"
-    println "boats = $map.boats"
-    map.cars = 42
-    println "cars = $map.cars"
-}
 
