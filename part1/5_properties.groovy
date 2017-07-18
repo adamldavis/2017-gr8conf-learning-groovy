@@ -1,11 +1,19 @@
 
-class Foo {
-    def bar
+class Vampire {
+    String name = ''
+    int yearBorn
+    //def setName(n) { println "setting $n"; name=n }
 }
-def foo = new Foo()
+def vamp = new Vampire()
 
-assert foo.bar == foo.getBar()
+println vamp.name == vamp.getName()
+println '--'
 
-foo.bar = 2
+vamp.name = 'Dracula'
+vamp.yearBorn = 1897
 
-println "bar = $foo.bar"
+println "name = $vamp.name"
+
+//def v2= new Vampire(name: 'Count Dracula', yearBorn: 1897)
+//println "v2 = $v2.name"
+
