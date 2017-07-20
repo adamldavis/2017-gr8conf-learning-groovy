@@ -15,8 +15,8 @@ println newList //  ["FOO", "BAR"]
 
 println "\n\n find:"
 
-def find(list, tester) {
-    for (item in list)
+def find = {collection, tester ->
+    for (item in collection)
         if (tester(item)) return item
 }
 

@@ -8,7 +8,7 @@ println String.metaClass.class
 def dog = [bark: {println "woof!"}]
 
 dog.bark()
-
+/*
 //methodMissing
 class Car {
     def methodMissing(String name, params) {
@@ -25,6 +25,6 @@ car.findAllCarsWithModel("Honda")
 
 car.go("clunk")
 
-println Car.metaClass.methods
-
+//println Car.metaClass.methods
+//*/
 

@@ -1,5 +1,5 @@
-
-def test (x) {
+// groovy switch
+def test = { x ->
     switch ( x ) {
     case "foo":
         result = "found foo"

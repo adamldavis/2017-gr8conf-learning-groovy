@@ -41,7 +41,7 @@ println "found:  $found    findAll: $all \n"
 
 // REGEX in switch
 println "----------------REGEX in SWITCH"
-def test(value) {
+def test = {value ->
     switch (value) {
         case ~/Ja.+/: return 'java'
         case ~/Gr.+/: return 'groovy'
