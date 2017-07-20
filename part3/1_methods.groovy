@@ -1,12 +1,14 @@
-import groovy.transform.*
 
-@Canonical class Dragon {
+class Dragon {
     String name
+    Dragon(String n) {name=n}
 
     def fly() {println "$name flying"}
 
     // default values:
     def say(String text = "I hear you") {println text}
+    
+    String toString() {name}
 }
 
     Dragon dragon = new Dragon('Smaug')

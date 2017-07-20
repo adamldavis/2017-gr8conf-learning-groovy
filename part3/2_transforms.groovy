@@ -7,15 +7,16 @@ class Person {
     def name
 }
 Person bob = new Person("Bob")
-println "person = $bob"
+println "person = $bob" //toString
 
+/*
 Person bob2 = new Person("Bob")
 
-println "bob == bob2? ${bob == bob2}"
-
+println "\n\n\n"
+println "bob == bob2? ${bob == bob2}" //equals
 println "\n\n\n"
 
-
+/* /
 @Canonical 
 //@TypeChecked
 class Dragon {
@@ -31,13 +32,14 @@ def norbort = new Dragon(1, "Norbort")
 println "$norbort.name is $norbort.age year old"
 
 //d.age = 2
-println "$norbort"
+println
+println norbort.toString()
 
 def d2 = new Dragon(2, "Smaug")
 def d3 = new Dragon(1000, "Smaug")
-println "d2equal? ${d == d2}"
-println "d3equal? ${d == d3}"
+println "\n d2equal? ${d == d2}"
+println "\n d3equal? ${d == d3}"
 
 
-
+//*/
 
